@@ -16,8 +16,21 @@ class Classroom
     students.map!(&:upcase)
   end
 
-end
+  def over_capacity?
+    if students.count > 4
+      true
+    else
+      false
+  end
 
+  # def kick_out
+  #   if students.over_capacity? = true
+  #     students.last
+  #   elsif students.over_capacity? = false
+  # end
+  end
+end
+#
 classroom = Classroom.new('History', 4)
 classroom.add_student('Mike')
 classroom.add_student('Megan')

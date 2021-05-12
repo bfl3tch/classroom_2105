@@ -44,5 +44,44 @@ describe Classroom do
 
       expect(classroom.yell_at_students).to eq ['MIKE', 'MEGAN', 'BOB']
     end
-  end
+
+    # Iteration 3
+
+    it 'determines if more students than capacity' do
+      classroom = Classroom.new('History', 4)
+      classroom.add_student('Mike')
+      classroom.add_student('Megan')
+      classroom.add_student('Bob')
+      expect(classroom.over_capacity?).to be false
+    end
+
+    it 'determines if more students than capacity' do
+      classroom = Classroom.new('History', 4)
+
+      classroom.add_student('Mike')
+      classroom.add_student('Megan')
+      classroom.add_student('Bob')
+      classroom.add_student('Eve')
+      classroom.add_student('Alice')
+
+      expect(classroom.over_capacity?).to be true
+    end
+
+    #Iteration 4
+
+    it 'determines if students need to be kicked out' do
+      classroom = Classroom.new('History', 4)
+
+      classroom.add_student('Mike')
+      classroom.add_student('Megan')
+      classroom.add_student('Bob')
+      classroom.add_student('Eve')
+      classroom.add_student('Alice')
+      classroom.add_student('James')
+      
+      expect(classroom.over_capacity?).to be true
+    end
+
+
+end
 end
